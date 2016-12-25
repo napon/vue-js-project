@@ -1,0 +1,35 @@
+body {
+	padding-top: 50px;
+}
+
+#show-cart {
+  position: fixed;
+  right: 30px;
+  top: 25px;
+  width: 140px;
+  height: 40px;
+}
+
+.restart-timer {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ui.container.main-canvas {	
+	max-width: 1000px !important;
+}
+
+.logo {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.navbar {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.ui.menu a.item.list-menu:hover, a.item.list-menu:active {
+	color: red;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="Semantic-UI/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/ion.rangeSlider.css">
+    <link rel="stylesheet" type="text/css" href="vendor/ion.rangeSlider.skinModern.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/product.css">
+    <script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
+    <script src="Semantic-UI/semantic.min.js" type="text/javascript"></script>
+    <script src="vendor/ion.rangeSlider.min.js" type="text/javascript"></script>
+    <script src="vendor/vue.min.js" type="text/javascript"></script>
+    <script src="vendor/md5.min.js" type="text/javascript"></script>
+    <script src="js/slider.js" type="text/javascript" defer></script>
+    <script src="js/server.js" type="text/javascript" defer></script>
+    <script src="js/product.js" type="text/javascript" defer></script>
+    <script src="js/menu-item.js" type="text/javascript" defer></script>
+    <script src="js/app.js" type="text/javascript" defer></script>
+    <script src="js/modal.js" type="text/javascript" defer></script>
+
+    <title>Assignment 5</title>
+
+</head>
+<body>
+    <div class="main">
+        <button id="show-cart" class="ui button" v-on:click="openCart()">Cart (${{total}})</button>
+        <div class="ui two column grid container center aligned main-canvas">
+            <div id="header" class="row">
+            <div id="logo" class="three wide column logo">
+                <img src="http://placehold.it/200x200/008080/ffffff?text=LOGO">
+            </div>
+            <div id="welcomeBanner" class="thirteen wide column banner">
+                <img src="http://placehold.it/900x217/A0A0A0/ffffff?text=Welcome.">
+            </div>
+            </div>
+            <div id="mainContent" class="row">
+                <div id="navigationMenu" class="ui vertical menu three wide column navbar">
+                    <menu-item v-for="menu in categories" v-bind:name="menu" v-bind:selected="category"></menu-item>
+                </div>
+
+                <div id="productList" class="thirteen wide column">
+                    <div class="row ui segment">
+                        <h3> Filter by price </h3>
+                        <price-slider v-bind:min="minPrice" v-bind:max="maxPrice"></price-slider>
+                    </div>
+                    <div class="row">
+                        <div class="ui active inverted dimmer" v-show="loading">
+                         <div class="ui text loader">{{loadingmsg}}</div>
+                        </div>
+                          
+                        <div class="ui three column grid">
+                            <product v-for="item in displayProducts" v-bind:image="item.image" v-bind:price="item.price" v-bind:display-name="item.displayName" v-bind:name="item.name" v-bind:quantity="cart[item.name] || 0"></product>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <footer class="row">
+            <div id="footer" class="ui sixteen wide column grey message">
+                Inactive timer ({{inactive}}s <-- commented out since a4 because annoying)
+            </div>
+            </footer>
+        </div>
+        <modal id="cartModal" v-bind:cart="{cart}" v-bind:total="total"></modal>
+    </div>
+</body>
+</html>

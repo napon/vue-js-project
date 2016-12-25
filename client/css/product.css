@@ -1,0 +1,87 @@
+.product .segment{
+	width: 300px;
+	height: 300px;
+}
+
+.product-image{
+	position:relative;
+	max-width: 199px;
+	max-height: 199px;
+	width: 199px;
+	height:199px;
+}
+
+.cartOverlay{
+	position:absolute;
+	margin-top:5px;
+	z-index: 100;
+	top:10px;
+	left:20px;
+	background:rgba(0, 0, 0, .75);
+	text-align: center;
+	opacity: 0;
+	width: 83%;
+	height:57%;
+}
+
+.cartOverlay img{
+	max-width: 200px;
+	max-height: 200px;
+	width: 190px;
+	height:166px;
+}
+
+.productPrice h5{
+	position: absolute; 
+    top: 180px; 
+    left: 20px; 
+    font-size: 20pt;
+    background: #bbbbbb;
+    width: 83%;
+    z-index: 150;
+}
+
+.add-cart{
+	position: absolute;
+	width: 80px;
+    top: 80px;
+    left: 10px;
+    padding: 0px;
+    color: #FFF;
+    background-color: #3BAA4A;
+    border: none;
+    z-index: 100;
+    font-weight: bold;
+}
+
+.remove-cart{
+	position: absolute;
+	width: 80px;
+    top: 80px;
+    left: 110px;
+    padding: 0px;
+    color: #FFF;
+    background-color: #FA3445;
+    border: none;
+    z-index: 100;
+    font-weight: bold;
+}
+
+#productList .column .product .segment .productPrice{
+	visibility: hidden;
+}
+
+#productList .column .product .segment:hover > .productPrice{
+	visibility: visible;
+	background-color: #68898A;
+}
+
+#productList .column .product .segment:hover{
+	background-color: #EEEEEE;
+}
+
+#productList .column .product .segment:hover > .productBox .cartOverlay{
+	opacity: 0.8;
+}
+
+
